@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Create new flight">
+        <div class="slds-var-p-around_medium">
+            
+            <lightning-record-view-form lwc:if={flightId} object-api-name={objectApiName} record-id={flightId}>
+                <lightning-output-field field-name={arrival}> </lightning-output-field>
+                <lightning-output-field field-name={depature}> </lightning-output-field>
+                <lightning-output-field field-name={distance}> </lightning-output-field>
+                <lightning-button variant="brand" type="submit" label="Add new" onclick={handleNew}>
+                </lightning-button>
+            </lightning-record-view-form>
+
+            <lightning-record-edit-form lwc:else object-api-name={objectApiName}  onsuccess={handleSuccess}>
+                <lightning-input-field field-name={arrival}> </lightning-input-field>
+                <lightning-input-field field-name={depature}> </lightning-input-field>
+                <div class="slds-var-m-top_medium">
+                    <lightning-button variant="brand" type="submit" label="Save">
+                    </lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>
